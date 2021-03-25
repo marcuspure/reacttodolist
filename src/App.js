@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useState ,useRef, useEffect  } from "react";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 import { nanoid } from "nanoid";
+
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+const FILTER_MAP = {
+  All: () => true,
+  進行中: task => !task.completed,
+  完成: task => task.completed
+};
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
 function App(props) {
+  const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState('All');
-  const FILTER_MAP = {
-    All: () => true,
-    已刪除: task => !task.completed,
-    完成: task => task.completed
-  };
-  const FILTER_NAMES = Object.keys(FILTER_MAP);
+
+
   const filterList = FILTER_NAMES.map(name => (
     <FilterButton 
     key={name} 
@@ -19,7 +31,7 @@ function App(props) {
     setFilter={setFilter}
     />
   ));
-  const [tasks, setTasks] = useState(props.tasks);
+  
   function addTask(name) {
     const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
     setTasks([...tasks, newTask]);
@@ -55,6 +67,15 @@ function App(props) {
   const tasksNoun = taskList.length !== 1 ? '任務' : '任務';
   const headingText = `${taskList.length} ${tasksNoun} 事項`;
    
+  const listHeadingRef = useRef(null);
+  const prevTaskLength = usePrevious(tasks.length);
+
+  useEffect(() => {
+    if (tasks.length - prevTaskLength === -1) {
+      listHeadingRef.current.focus();
+    }
+  }, [tasks.length, prevTaskLength]);
+
   function toggleTaskCompleted(id){
     const updateTasks = tasks.map(task =>{
       if (id === task.id){
@@ -71,7 +92,8 @@ function App(props) {
       <div className="filters btn-group stack-exception">
       {filterList}
       </div>
-      <h2 id="list-heading">
+      <h2 id="list-heading" tabIndex="-1" 
+        ref={listHeadingRef}>
       {headingText}
       </h2>
       <ul
