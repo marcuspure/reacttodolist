@@ -113,7 +113,11 @@ function App(props) {
     <HashRouter>
             <Switch>
                 <Layout>
+                <div className="container">
+                    <div className="weather-card">
                     <Route exact path="/" component={FirstPage}/>
+                    </div>
+                  </div>
                     <Route path="/second" component={SecondPage}/>
                 </Layout>
             </Switch>
