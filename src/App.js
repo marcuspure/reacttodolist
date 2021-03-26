@@ -3,7 +3,10 @@ import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 import { nanoid } from "nanoid";
-
+import { HashRouter,Route,Switch } from "react-router-dom";
+import FirstPage from "./components/FirstPage";
+import SecondPage from "./components/SecondPage";
+import Layout from "./components/Layout";
 function usePrevious(value) {
   const ref = useRef();
   useEffect(() => {
@@ -19,6 +22,7 @@ const FILTER_MAP = {
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
+  
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState('All');
 
@@ -86,6 +90,7 @@ function App(props) {
     setTasks(updateTasks);
   }
   return (
+    <>
     <div className="todoapp stack-large">
       <h1>TodoList</h1>
       <Form addTask={addTask}/>
@@ -104,6 +109,19 @@ function App(props) {
        {taskList}
       </ul>
     </div>
+    <div>
+    <HashRouter>
+            <Switch>
+                <Layout>
+                    <Route exact path="/" component={FirstPage}/>
+                    <Route path="/second" component={SecondPage}/>
+                </Layout>
+            </Switch>
+        </HashRouter>
+    </div>
+  
+  
+  </>
   );
 }
 export default App;
