@@ -13,7 +13,7 @@ const FirstPage=()=>{
     return(
       <div style={StyleSheet}>
       
-      <h1 style={{color:"white",fontFamily:"Microsoft JhengHei"}}>我是第一頁</h1>
+      <h1 style={{color:"white",fontFamily:"Microsoft JhengHei"}}>第一頁</h1>
   </div>
     )
 }
