@@ -17,6 +17,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.1/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="./app.css">
     <title>todolist</title>
   </head>
   <body>
@@ -31,24 +36,13 @@
         <div class="swiper-slide" style="background-image:url(https://picsum.photos/300?random=2)">
           <img src="https://picsum.photos/300?random=5" class="entity-img" />
         </div>
-      </div>
-        
+      </div>  
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev swiper-button-white"></div>
       <div class="swiper-button-next swiper-button-white"></div>
-    </section>
-    
+    </section>  
+    <div id="app1"></div>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
   <script>
     var sliderSelector = '.swiper-container',
@@ -83,10 +77,8 @@
           },
           
         };
-    var mySwiper = new Swiper(sliderSelector, options);
-    
+    var mySwiper = new Swiper(sliderSelector, options);   
     // Initialize slider
-    mySwiper.init();
-    
+    mySwiper.init(); 
     </script>
 </html>

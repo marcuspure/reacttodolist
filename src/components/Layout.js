@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 const Layout=(props)=>{
   const StyleSheet={
-    width:"50vw",
-    height:"50vh",
+    width:"80vw",
+    height:"80vh",
     backgroundColor:(props.location.pathname==="/")?"#FF2E63":"#08D9D6",
     display: "flex",
     alignItems:"center",
