@@ -11,11 +11,12 @@ function CategoryItem(props){
       </tr>
   )
 }
-function List(){
+const List=()=>{
+
 const [list, setList] = React.useState([]);
 
 React.useEffect(() => {
-  fetch("https://data.tainan.gov.tw/api/3/action/datastore_search?resource_id=6da8e048-3b16-4eca-965f-3a3f4720494a&limit=5")
+  fetch("https://data.tainan.gov.tw/api/3/action/datastore_search?resource_id=6da8e048-3b16-4eca-965f-3a3f4720494a&limit=10")
     .then((res) => res.json())
     .then((categories) => {
       console.log(categories.result.records);
@@ -43,12 +44,11 @@ return (
     </table>
     </div>
   </div>
-)  
-}
+    )  
+  }
 
-ReactDOM.render(
-  <List />,
-  document.getElementById('app1')
-  
-);
+// ReactDOM.render(
+//   <List />,
+//   document.getElementById('app1') 
+// );
 export default List;
