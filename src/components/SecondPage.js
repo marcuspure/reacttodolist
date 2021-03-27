@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import React from 'react';
 
 function CategoryItem(props){
@@ -47,8 +47,4 @@ return (
     )  
   }
 
-// ReactDOM.render(
-//   <List />,
-//   document.getElementById('app1') 
-// );
 export default List;
