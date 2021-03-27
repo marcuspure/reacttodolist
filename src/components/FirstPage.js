@@ -146,20 +146,14 @@ const FirstPage=()=>{
         humid: weatherElements.HUMD,
        });
       });
-    
-    
-          
+  
       };
-
 
     return(
         <>
-      {/* <div style={StyleSheet}>
       
-      <h1 style={{color:"white",fontFamily:"Microsoft JhengHei"}}>第一頁</h1>
-  </div> */}
    <Container>
-   <WeatherCard>
+    <WeatherCard>
      <Location theme="dark">{currentWeather.locationName}</Location>
      <Description>
      {new Intl.DateTimeFormat('zh-TW', {

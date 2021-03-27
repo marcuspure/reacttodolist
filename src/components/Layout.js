@@ -2,20 +2,24 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 const Layout=(props)=>{
   const StyleSheet={
-    width:"80vw",
-    height:"80vh",
-    backgroundColor:(props.location.pathname==="/")?"#FF2E63":"#08D9D6",
+    // width:"70vw",
+    // height:"70vh",
+    backgroundColor:(props.location.pathname==="/")?"#F1E1FF":"#08D9D6",
     display: "flex",
     alignItems:"center",
     justifyContent:"center",
     flexDirection:"column"
+    
   }
   return(
     
       <div style={StyleSheet}>
           <nav>
-              <Link to="/">點我連到第一頁</Link>
-              <Link to="/second" style={{marginLeft:"20px"}}>點我連到第二頁</Link>
+              <Link to="/" style={{marginLeft:"10px"
+                      
+            
+            }}>第一頁</Link>
+              <Link to="/second" style={{marginLeft:"10px"}}>第二頁</Link>
           </nav> 
           {props.children}
       </div>

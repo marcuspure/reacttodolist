@@ -15,7 +15,7 @@ function usePrevious(value) {
   return ref.current;
 }
 const FILTER_MAP = {
-  All: () => true,
+  全部: () => true,
   進行中: task => !task.completed,
   完成: task => task.completed
 };
@@ -24,7 +24,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
   
   const [tasks, setTasks] = useState(props.tasks);
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('全部');
 
 
   const filterList = FILTER_NAMES.map(name => (
@@ -92,7 +92,7 @@ function App(props) {
   return (
     <>
     <div className="todoapp stack-large">
-      <h1>TodoList</h1>
+    <h1>TodoList</h1>
       <Form addTask={addTask}/>
       <div className="filters btn-group stack-exception">
       {filterList}

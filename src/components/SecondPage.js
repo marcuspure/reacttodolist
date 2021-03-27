@@ -47,8 +47,4 @@ return (
     )  
   }
 
-// ReactDOM.render(
-//   <List />,
-//   document.getElementById('app1') 
-// );
 export default List;
